@@ -25,17 +25,42 @@ def reminder(a, b):
 
 #-------------------------------------
 #TODO: Write the select_op(choice) function here
-
+def select_op(choice):
+    if choice == '#':
+        return -1  # Terminate
+    elif choice == '$':
+        return 0   # Reset
+    elif choice in ('+', '-', '*', '/', '^', '%'):
+        a = int(input("Enter first number: "))
+        print(a)
+        b = int(input("Enter second number: "))
+        print(b)
+        
+        # Call the corresponding arithmetic function
+        if choice == '+':
+            result = add(a, b)
+        elif choice == '-':
+            result = subtract(a, b)
+        elif choice == '*':
+            result = multiply(a, b)
+        elif choice == '/':
+            result = divide(a, b)
+        elif choice == '^':
+            result = power(a, b)
+        elif choice == '%':
+            result = reminder(a, b)
+        
+        print(f"{float(a)} {choice} {float(b)} = {float(result)}")
+        return 0  # Reset
+    else:
+        print("Unrecognized operation")
+        return 0  # Reset
 
 #This function sould cover Task 1 (Section 2) and Task 3
-
-
-
-
 #End the select_op(choice) function here
 #-------------------------------------
+    
 #This is the main loop. It covers Task 1 (Section 1)
-#YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE
 while True:
   print("Select operation.")
   print("1.Add      : + ")
